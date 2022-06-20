@@ -4,7 +4,7 @@ import EmployeesView from '../views/EmployeesView.vue'
 import EmployeeView from '../views/EmployeeView.vue'
 import AddEmployeeView from '../views/AddEmployeeView.vue'
 import EmployeeEdit from '../views/EmployeeEdit.vue'
-
+import LoginView from '../views/LoginView.vue'
 const routes = [
   {
     path: '/',
@@ -30,6 +30,12 @@ const routes = [
     path: '/add-employee',
     name: 'add-employee',
     component: AddEmployeeView
+  },
+
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
   }
 ]
 

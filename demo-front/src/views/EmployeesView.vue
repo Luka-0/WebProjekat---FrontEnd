@@ -41,10 +41,14 @@
 
 <script>
 //import axios from "axios";
+
 import EmployeesComp from "../components/EmployeesComp.vue";
 export default {
   name: "EmployeesView",
   components: { EmployeesComp },
+
+ 
+
   data: function () {
     return {
       employees: [],
