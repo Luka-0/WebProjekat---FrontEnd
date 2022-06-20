@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style>
-h1 {
+/* h1 {
   color: #4caf50;
 }
 
@@ -135,6 +135,6 @@ h3 {
 .title {
   color: grey;
   font-size: 18px;
-}
+} */
 </style>
 
