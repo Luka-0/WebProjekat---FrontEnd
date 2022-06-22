@@ -1,6 +1,6 @@
 <template>
   <header-comp></header-comp>  
-  <div class="container">
+  <div class="margin15_10">
     <h1 class = "left-align center">Unesite podatke:</h1>
       <div class="row">
         <div class="input-field col s6 offset-s3">
@@ -50,7 +50,7 @@ export default {
         ulogujSe : function(){
           fetch("http://localhost:8081/api/login", {
             method: "POST",
-            credentials: 'same-origin',
+            credentials: 'include',
             headers: {
               Accept: "application/json",
               "Content-type": "application/json",
