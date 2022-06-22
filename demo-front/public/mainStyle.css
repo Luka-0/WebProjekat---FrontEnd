@@ -1,0 +1,16 @@
+.margin15_10{
+    margin: 15% 10%;
+  }
+
+  .margin2_5{
+    margin: 2% 5%;
+  }
+
+  
+.fontsize1_25em{
+    font-size:1.25rem;
+  }
+
+  h1{
+    font-size: 3.5vw !important;
+  }

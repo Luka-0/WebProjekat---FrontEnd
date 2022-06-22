@@ -5,6 +5,8 @@ import EmployeeView from '../views/EmployeeView.vue'
 import AddEmployeeView from '../views/AddEmployeeView.vue'
 import EmployeeEdit from '../views/EmployeeEdit.vue'
 import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
+import NalogView from '../views/NalogView.vue'
 const routes = [
   {
     path: '/',
@@ -36,6 +38,18 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+
+  {
+    path: '/nalog',
+    name: 'nalog',
+    component: NalogView
   }
 ]
 
