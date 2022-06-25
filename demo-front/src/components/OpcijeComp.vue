@@ -15,10 +15,13 @@
                 <tr>
                     <td v-on:click="pregledSvihKorisnika()" v-if = "uloga === 'ADMIN' ">Pregled svih korisnika</td>
                 </tr>
+                <tr>
+                    <td v-on:click="pregledRestoranaMenadzera()" v-if = "uloga === 'MENADZER' ">Pregled svog restorana</td>
+                </tr>
             </tbody>
         </table>
 </template>
-
+         
 <script>
 export default {
     name:'OpcijeView',
@@ -30,21 +33,6 @@ export default {
     props: ["uloga"],
 
     methods: {
-  //     mounted: function () {
-  //     fetch('http://localhost:8081/api/pregled-licni-podaci/', {
-  //       credentials: 'include'
-  //     })
-  //       .then(response => response.json())
-  //       .then(data => {
-  //         // console.log("Restoran : ", data.restoran.naziv)
-  //         console.log("Success:", data); this.ulogovaniKorisnik = data
-        
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error:", error);
-  //       });
-      
-  // },
     pregledLicnihPodataka: function () {
       this.$router.push("/pregled-licnih-podataka");
     },
@@ -60,6 +48,12 @@ export default {
     pregledSvihKorisnika: function () {
       this.$router.push("/pregled-svih-korisnika");
     },
+
+    pregledRestoranaMenadzera: function () {
+      this.$router.push("/pregled-restorana-menadzera");
+    },
+
+    
     
   },
 }

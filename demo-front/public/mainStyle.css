@@ -6,6 +6,14 @@
     margin: 2% 5%;
   }
 
+  .margin_left_9{
+    margin-left: 9%;
+  }
+
+  .margin_left_8_5{
+    margin-left: 8.5%;
+  }
+
   
 .fontsize1_25em{
     font-size:1.25rem;
@@ -15,10 +23,19 @@
     font-size: 3.5vw !important;
   }
 
+  h2{
+    font-size: 3vW !important;
+  }
+
   .fontsize_3{
     font-size: 1rem;
   }
 
-  .margin_left_9{
-    margin-left: 9%;
+  .card_image{
+    max-width: 65%;
+    margin: auto;
+  }
+
+  .list_style_type_none{
+    list-style-type:none;
   }

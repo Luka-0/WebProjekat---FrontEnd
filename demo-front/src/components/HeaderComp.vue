@@ -13,7 +13,7 @@
                 <li><a href="/"> <span class ="fontsize1_25em">Početna strana</span></a></li>
                 <li><a href="/login"><span class ="fontsize1_25em">Uloguj se</span></a></li>
                 <li><a href="/register"><span class ="fontsize1_25em">Registruj se</span></a></li>
-                <li><a href="mobile.html"><span class ="fontsize1_25em">Mobile</span></a></li>
+                <li><a href="/logout"><span class ="fontsize1_25em">Izloguj se</span></a></li>
               </ul>
           </div>
         </nav>

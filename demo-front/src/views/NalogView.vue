@@ -152,8 +152,5 @@ export default {
 </script>
 
 <style scoped>
-  .card_image{
-    max-width: 55%;
-    margin: auto;
-  }
+  
 </style>

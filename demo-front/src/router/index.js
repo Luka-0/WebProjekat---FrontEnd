@@ -10,6 +10,8 @@ import NalogView from '../views/NalogView.vue'
 import PregledLicnihPodatakaView from '../views/PregledLicnihPodatakaView.vue'
 import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.vue'
 import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
+import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraView.vue'
+import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
 const routes = [
   {
     path: '/',
@@ -71,6 +73,18 @@ const routes = [
     path: '/pregled-svih-korisnika',
     name: 'pregled-svih-korisnika',
     component: PregledSvihKorisnikaView
+  },
+
+  {
+    path: '/pregled-restorana-menadzera',
+    name: 'pregled-restorana-menadzera',
+    component: PregledRestoranaMenadzeraView
+  },
+
+  {
+    path: '/pregled-porudzbina-kupca',
+    name: 'pregled-porudzbina-kupca',
+    component: PregledPorudzbinaKupcaView
   },
 
 
