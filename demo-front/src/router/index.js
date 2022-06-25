@@ -8,6 +8,8 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import NalogView from '../views/NalogView.vue'
 import PregledLicnihPodatakaView from '../views/PregledLicnihPodatakaView.vue'
+import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.vue'
+import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
 const routes = [
   {
     path: '/',
@@ -57,7 +59,29 @@ const routes = [
     path: '/pregled-licnih-podataka',
     name: 'pregled-licnih-podataka',
     component: PregledLicnihPodatakaView
-  }
+  },
+
+  {
+    path: '/azuriranje-licnih-podataka',
+    name: 'azuriranje-licnih-podataka',
+    component: AzuriranjeLicnihPodatakaView
+  },
+
+  {
+    path: '/pregled-svih-korisnika',
+    name: 'pregled-svih-korisnika',
+    component: PregledSvihKorisnikaView
+  },
+
+
+
+
+
+
+
+
+
+
 ]
 
 const router = createRouter({

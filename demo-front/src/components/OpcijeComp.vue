@@ -10,10 +10,10 @@
                     <td v-on:click="pregledLicnihPodataka()">  Pregled ličnih podataka </td>
                 </tr>
                 <tr>
-                    <td>Ažuriranhe ličnih podataka</td>
+                    <td v-on:click="azuriranjeLicnihPodataka()">Ažuriranhe ličnih podataka</td>
                 </tr>
                 <tr>
-                    <td>Jonathan</td>
+                    <td v-on:click="pregledSvihKorisnika()" v-if = "uloga === 'ADMIN' ">Pregled svih korisnika</td>
                 </tr>
             </tbody>
         </table>
@@ -22,7 +22,29 @@
 <script>
 export default {
     name:'OpcijeView',
+    data: function(){
+      return{
+        ulogovaniKorisnik: {},
+      };
+    },
+    props: ["uloga"],
+
     methods: {
+  //     mounted: function () {
+  //     fetch('http://localhost:8081/api/pregled-licni-podaci/', {
+  //       credentials: 'include'
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         // console.log("Restoran : ", data.restoran.naziv)
+  //         console.log("Success:", data); this.ulogovaniKorisnik = data
+        
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error:", error);
+  //       });
+      
+  // },
     pregledLicnihPodataka: function () {
       this.$router.push("/pregled-licnih-podataka");
     },
@@ -30,6 +52,15 @@ export default {
     seeNalog: function () {
       this.$router.push("/nalog");
     },
+
+    azuriranjeLicnihPodataka: function () {
+      this.$router.push("/azuriranje-licnih-podataka");
+    },
+
+    pregledSvihKorisnika: function () {
+      this.$router.push("/pregled-svih-korisnika");
+    },
+    
   },
 }
 </script>

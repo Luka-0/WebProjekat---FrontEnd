@@ -3,9 +3,10 @@
     <div class="container">
         <div class="row">
           <div class="col s8">
-            <h1 class="left-align">Lični podaci</h1>
+            <h1 class="left-align">Pregled ličnih podataka</h1>
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
+            <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
             
 
             <table class="striped">
@@ -48,18 +49,10 @@
           </div>
 
           <div class="col s4">
-            <opcije-comp></opcije-comp>
+            <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
           </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
   <footer-comp></footer-comp>
 </template>
 
@@ -68,7 +61,7 @@ import FooterComp from '../components/FooterComp.vue';
 import HeaderComp from '../components/HeaderComp.vue';
 import OpcijeComp from '../components/OpcijeComp.vue'
 export default {
-    name: "nalog",
+    name: "pregledLicnihPodataka",
     components:{
     HeaderComp,
     FooterComp,
