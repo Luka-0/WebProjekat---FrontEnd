@@ -10,10 +10,10 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Linkovi</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="/">Početna strana</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/login">Uloguj se</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/register">Registruj se</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a class="grey-text text-lighten-3" v-on:click="goToPocetna()">Početna strana</a></li>
+                  <li><a class="grey-text text-lighten-3" v-on:click="goToLogin()">Uloguj se</a></li>
+                  <li><a class="grey-text text-lighten-3" v-on:click="goToRegister()">Registruj se</a></li>
+                  <li><a class="grey-text text-lighten-3" v-on:click="logOut()">Izloguj se</a></li>
                 </ul>
               </div>
             </div>
@@ -29,7 +29,42 @@
 
 <script>
 export default {
-    
+    methods:{
+    goToLogin: function () {
+      this.$router.push("/login");
+    },
+
+    goToRegister: function () {
+      this.$router.push("/register");
+    },
+
+    goToPocetna: function () {
+      this.$router.push("/");
+    },
+
+    logOut: function(){
+      fetch("http://localhost:8081/api/logout", {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+              SameSite:'None'
+            },
+
+            })
+            .then((response) => response.json)
+            .then((data) => {
+              alert("Izlogovani ste", this.poruka)
+              this.$router.push("/login");
+            })
+            .catch((err) => {
+              console.log("Error : " + err);
+              alert(err);
+            });
+    },
+
+  }
 }
 </script>
 

@@ -61,7 +61,10 @@ export default {
             .then((data) => {
               console.log("Success : " + data.toString());
               console.log(this.ulogovaniKorisnik)
-              this.$router.push("/nalog");
+              if(this.ulogovaniKorisnik.korisnickoIme != "")
+                  this.$router.push("/nalog");
+              else
+                alert("Morate uneti trazene podatke!")
             })
             .catch((err) => {
               console.log("Error : " + err);

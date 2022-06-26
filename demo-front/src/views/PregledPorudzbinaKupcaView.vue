@@ -3,19 +3,20 @@
     <div class="container">
         <div class="row">
           <div class="col s8">
-            <h1 class="left-align">Pregled restorana menadžera</h1>
+            <h1 class="left-align">Pregled porudžbina kupca</h1>
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
             <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
             
-            <!-- Prikaz restorana -->
             
-
-            
-
-            
-            
-            
+            <porudzbina-comp
+            v-for="porudzbina in porudzbineKupca"
+            :key="porudzbina.uuid"
+            :porudzbina="porudzbina"
+            :kupac="ulogovaniKorisnik"
+            :restoran=null
+            >
+            </porudzbina-comp>
           </div>
 
           <div class="col s4">
@@ -42,16 +43,10 @@ export default {
 
     data: function(){
       return{
-        ulogovaniKorisnik: {},
-        restoranIPorudzbine: {
-            menadzerovRestoran:{
-                lokacija:{},
-                artikli:{},
-            },
-            porudzbineMenadzerovogRestorana:{
-                stavkePorudzbine: {},
-            },
-        },
+        ulogovaniKorisnik:{},
+        porudzbineKupca: {
+          stavkePorudzbine:{},
+        }
       };
     },
 
@@ -69,13 +64,12 @@ export default {
           console.error("Error:", error);
         });
 
-        fetch('http://localhost:8081/api/menadzer-pregled', {
+        fetch('http://localhost:8081/api/kupac-pregled-porudzbina', {
         credentials: 'include'
       })
         .then(response => response.json())
         .then(data => {
-          console.log("Podaci", data.menadzerovRestoran.lokacija.adresa)
-          console.log("Restoran i porudzbine:", data); this.restoranIPorudzbine = data
+          console.log("Porudzbine:", data); this.porudzbineKupca = data
         
         })
         .catch((error) => {
