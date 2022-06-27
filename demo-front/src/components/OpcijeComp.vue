@@ -27,6 +27,9 @@
                  <tr>
                    <td v-on:click="pregledSvihRestorana()">Restorani</td>
                 </tr>
+                <tr>
+                   <td v-on:click="kreiranjeRestorana()" v-if = "uloga === 'ADMIN' ">Kreiraj restoran</td>
+                </tr>
             </tbody>
         </table>
 </template>
@@ -72,6 +75,10 @@ export default {
 
      pregledSvihRestorana: function(){
        this.$router.push("/restorani");
+    },
+
+     kreiranjeRestorana: function(){
+       this.$router.push("/novi-restoran");
     },
     
   },

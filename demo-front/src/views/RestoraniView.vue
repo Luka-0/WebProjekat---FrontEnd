@@ -19,7 +19,6 @@
                     <div class="collapsible-body">
                         <span><i class="material-icons">location_on</i>{{restoran.adresaLokacije}}</span><br>
                         <span><i class="material-icons">restaurant</i>{{restoran.tipRestorana}}</span><br>
-                        <span><i class="material-icons">restaurant</i>{{restoran.statusRestorana}}</span>
                     </div>
                 </li>
             </ul>

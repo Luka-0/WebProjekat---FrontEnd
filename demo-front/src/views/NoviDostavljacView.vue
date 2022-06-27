@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col s8">
-        <h1 class="left-align">Dodaj novog dostavljaca</h1>
+        <h1 class="left-align">Dodaj novog dostavljača</h1>
         <div class="divider"></div>
         <p class="left-align fontsize1_25em">
           Ulogovani korisnik : <b>{{ ulogovaniKorisnik.korisnickoIme }}</b>

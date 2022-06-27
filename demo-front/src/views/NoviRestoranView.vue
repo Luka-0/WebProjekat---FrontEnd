@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col s8">
-        <h1 class="left-align">Dodaj novog menadžera</h1>
+        <h1 class="left-align">Kreiranje restorana</h1>
         <div class="divider"></div>
         <p class="left-align fontsize1_25em">
           Ulogovani korisnik : <b>{{ ulogovaniKorisnik.korisnickoIme }}</b>
@@ -12,23 +12,23 @@
           Uloga: <b>{{ ulogovaniKorisnik.uloga }}</b>
         </p>
 
-        <label for="korisnickoIme">Korisničko ime:</label>
-        <input class="center-align" v-model="menadzer.korisnickoIme" />
+        <label for="nazivRestorana">Naziv restorana:</label>
+        <input class="center-align" v-model="restoran.nazivRestorana" />
 
-        <label for="ime">Ime:</label>
-        <input class="center-align" v-model="menadzer.ime"/>
+        <label for="tipRestorana">Tip restorana:</label>
+        <input class="center-align" v-model="restoran.tipRestorana"/>
 
-        <label for="prezime">Prezime:</label>
-        <input class="center-align" v-model="menadzer.prezime"/>
+        <label for="lokacija.geografskaSirina">Geografska širina lokacije:</label>
+        <input class="center-align" v-model="restoran.lokacija.geografskaSirina"/>
 
-        <label for="lozinka">Lozinka:</label>
-        <input class="center-align" v-model="menadzer.lozinka"/>
+        <label for="lokacija.geografskaDuzina">Geografska dužina lokacije:</label>
+        <input class="center-align" v-model="restoran.lokacija.geografskaDuzina"/>
 
-         <label for="pol">Pol:</label>
-        <input class="center-align" v-model="menadzer.pol"/>
+         <label for="lokacija.adresa">Adresa restorana:</label>
+        <input class="center-align" v-model="restoran.lokacija.adresa"/>
 
 
-        <a class="waves-effect waves-light btn" v-on:click="dodajMenadzera()"
+        <a class="waves-effect waves-light btn" v-on:click="KreirajRestoran()"
           >Kreiraj</a
         >
       </div>
@@ -45,7 +45,7 @@ import FooterComp from "../components/FooterComp.vue";
 import HeaderComp from "../components/HeaderComp.vue";
 import OpcijeComp from "../components/OpcijeComp.vue";
 export default {
-  name: "NoviMenadzerView",
+  name: "NoviRestoranView",
   components: {
     HeaderComp,
     FooterComp,
@@ -55,13 +55,15 @@ export default {
   data: function () {
     return {
       ulogovaniKorisnik: {},
-      menadzer:{
-        ime: "",
-        prezime: "",
-        korisnickoIme: "",
-        lozinka: "",
-        uloga : "MENADZER",
-        pol : "M",
+      restoran:{
+        nazivRestorana: "",
+        tipRestorana: "",
+
+        lokacija:{
+            geografskaSirina: "",
+            geografskaDuzina: "",
+            adresa: "",
+        }
       }
     };
   },
@@ -83,21 +85,21 @@ export default {
 
   methods: {
     
-    dodajMenadzera: function () {
+    KreirajRestoran: function () {
       
-       fetch("http://localhost:8081/api/admin/dodavanje-menadzera", {
+       fetch("http://localhost:8081/api/admin/kreiranje-restorana", {
         method: "POST",
         credentials: 'include',
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
         },
-        body: JSON.stringify(this.menadzer),
+        body: JSON.stringify(this.restoran),
       })
         .then((response) => response.json)
         .then((data) => {
           console.log("Success : " + data);
-          this.$router.push("/pregled-svih-korisnika");
+          this.$router.push("/restorani");
         })
         .catch((err) => {
           console.log("Error : " + err);
