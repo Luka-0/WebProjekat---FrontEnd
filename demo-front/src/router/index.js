@@ -16,6 +16,7 @@ import NoviMenadzerView from '../views/NoviMenadzerView.vue'
 import NoviDostavljacView from '../views/NoviDostavljacView.vue'
 import RestoraniView from '../views/RestoraniView.vue'
 import NoviRestoranView from '../views/NoviRestoranView.vue'
+import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 const routes = [
   {
     path: '/',
@@ -115,8 +116,11 @@ const routes = [
     component: NoviRestoranView
   },
 
-
-
+  {
+    path: '/restorani-pretraga',
+    name: 'restorani-pretraga',
+    component: PretragaRestoranaView
+  },
 
 
 ]
