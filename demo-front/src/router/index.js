@@ -14,6 +14,7 @@ import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraVie
 import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
 import NoviMenadzerView from '../views/NoviMenadzerView.vue'
 import NoviDostavljacView from '../views/NoviDostavljacView.vue'
+import RestoraniView from '../views/RestoraniView.vue'
 const routes = [
   {
     path: '/',
@@ -91,7 +92,7 @@ const routes = [
 
    {
     path: '/novi-menadzer',
-    name: 'novi_menadzer',
+    name: 'novi-menadzer',
     component: NoviMenadzerView
   },
 
@@ -101,6 +102,11 @@ const routes = [
     component: NoviDostavljacView
   },
 
+  {
+    path: '/restorani',
+    name: 'restorani',
+    component: RestoraniView
+  },
 
 
 
