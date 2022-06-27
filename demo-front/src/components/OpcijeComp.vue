@@ -18,6 +18,9 @@
                 <tr>
                     <td v-on:click="pregledRestoranaMenadzera()" v-if = "uloga === 'MENADZER' ">Pregled svog restorana</td>
                 </tr>
+                <tr>
+                    <td v-on:click="dodavanjeNovogMenadzera()" v-if = "uloga === 'ADMIN' ">Dodaj novog menadžera</td>
+                </tr>
             </tbody>
         </table>
 </template>
@@ -51,6 +54,10 @@ export default {
 
     pregledRestoranaMenadzera: function () {
       this.$router.push("/pregled-restorana-menadzera");
+    },
+
+    dodavanjeNovogMenadzera: function () {
+      this.$router.push("/novi-menadzer");
     },
 
     

@@ -12,6 +12,8 @@ import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.
 import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
 import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraView.vue'
 import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
+import NoviMenadzerView from '../views/NoviMenadzerView.vue'
+
 const routes = [
   {
     path: '/',
@@ -85,6 +87,12 @@ const routes = [
     path: '/pregled-porudzbina-kupca',
     name: 'pregled-porudzbina-kupca',
     component: PregledPorudzbinaKupcaView
+  },
+
+   {
+    path: '/novi-menadzer',
+    name: 'novi_menadzer',
+    component: NoviMenadzerView
   },
 
 
