@@ -3,27 +3,19 @@
     <div class="container">
         <div class="row">
           <div class="col s8">
-            <h1 class="left-align">Pregled porudžbina menadžerovog restorana</h1>
+            <h1 class="left-align">Naručivanje</h1>
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
             <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
+            
+            
+
+
+
           </div>
 
           <div class="col s4">
             <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col s12">
-            <porudzbina-comp
-            v-for="porudzbina in porudzbineMenadzerovogRestorana"
-            :key="porudzbina.uuid"
-            :porudzbina="porudzbina"
-            :kupac=null
-            :restoran="ulogovaniKorisnik.restoran"
-            >
-            </porudzbina-comp>
           </div>
         </div>
     </div>
@@ -34,14 +26,13 @@
 import FooterComp from '../components/FooterComp.vue';
 import HeaderComp from '../components/HeaderComp.vue';
 import OpcijeComp from '../components/OpcijeComp.vue'
-import PorudzbinaComp from '../components/PorudzbinaComp.vue'
+
 export default {
     name: "pregledMenadzeraRestorana",
     components:{
     HeaderComp,
     FooterComp,
     OpcijeComp,
-    PorudzbinaComp,
   },
 
     data: function(){
@@ -49,9 +40,8 @@ export default {
         ulogovaniKorisnik:{
             restoran:{},
         },
-        porudzbineMenadzerovogRestorana: {
-          stavkePorudzbine:{},
-        }
+        restorani: [],
+        korpa : {},
       };
     },
 
@@ -68,28 +58,45 @@ export default {
           console.error("Error:", error);
         });
 
-        fetch('http://localhost:8081/api/menadzer-pregled-porudzbina', {
+        fetch('http://localhost:8081/api/svi-restorani', {
         credentials: 'include'
       })
         .then(response => response.json())
         .then(data => {
-          console.log("Porudzbine:", data); this.porudzbineMenadzerovogRestorana = data
+          console.log("Success:", data); this.restorani = data
         
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-      
+
+        fetch('http://localhost:8081/api/pregled-korpe', {
+        credentials: 'include'
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Success:", data); this.korpa = data
+            // console.log("PODACI", this.korpa.restoran.id)
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+
+        
 
   },
 
   methods: {
-
+      kreirajPorudzbinu : function(){
+        
+      },
   },
 
 }
 </script>
 
 <style scoped>
-
+  button{
+    max-width: 100%;
+  }
 </style>

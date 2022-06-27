@@ -10,9 +10,12 @@
 
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a v-on:click="goToPocetna()"> <span class ="fontsize1_25em">Početna strana</span></a></li>
-                <li><a v-on:click="goToLogin()"><span class ="fontsize1_25em">Uloguj se</span></a></li>
-                <li><a v-on:click="goToRegister()"><span class ="fontsize1_25em">Registruj se</span></a></li>
+                <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToPocetna()"> <span class ="fontsize1_25em">Početna strana</span></a></li>
+                <li v-else><a v-on:click="goToPocetna()"> <span class ="fontsize1_25em">Početna strana</span></a></li>
+                <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToLogin()"><span class ="fontsize1_25em">Uloguj se</span></a></li>
+                <li v-else><a v-on:click="goToLogin()"><span class ="fontsize1_25em">Uloguj se</span></a></li>
+                <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToRegister()"><span class ="fontsize1_25em">Registruj se</span></a></li>
+                <li v-else><a v-on:click="goToRegister()"><span class ="fontsize1_25em">Registruj se</span></a></li>
                 <li><a v-on:click="logOut()"><span class ="fontsize1_25em">Izloguj se</span></a></li>
               </ul>
           </div>
@@ -20,8 +23,10 @@
       </div>
 
       <ul class="sidenav" id="mobile-demo">
-        <li><a v-on:click="goToPocetna()">Početna strana</a></li>
-        <li><a v-on:click="goToLogin()">Uloguj se</a></li>
+        <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToPocetna()">Početna strana</a></li>
+        <li v-else><a v-on:click="goToPocetna()">Početna strana</a></li>
+        <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToLogin()">Uloguj se</a></li>
+        <li v-else><a v-on:click="goToLogin()">Uloguj se</a></li>
         <li><a v-on:click="goToRegister()">Registruj se</a></li>
         <li><a  v-on:click="logOut()">Izloguj se</a></li>
       </ul>
@@ -33,9 +38,10 @@
 import M from 'materialize-css'
 export default {
     name:'HeaderComp',
+    props: ["enableLogin"],
      mounted(){
     M.AutoInit()
-  },
+    },
 
   methods:{
     goToLogin: function () {
