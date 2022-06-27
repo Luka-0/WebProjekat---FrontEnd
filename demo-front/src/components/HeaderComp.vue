@@ -27,7 +27,8 @@
         <li v-else><a v-on:click="goToPocetna()">Početna strana</a></li>
         <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToLogin()">Uloguj se</a></li>
         <li v-else><a v-on:click="goToLogin()">Uloguj se</a></li>
-        <li><a v-on:click="goToRegister()">Registruj se</a></li>
+        <li v-if="enableLogin === false " class="disabled"><a v-on:click="goToRegister()">Registruj se</a></li>
+        <li v-else><a v-on:click="goToRegister()">Registruj se</a></li>
         <li><a  v-on:click="logOut()">Izloguj se</a></li>
       </ul>
     </header>

@@ -7,15 +7,79 @@
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
             <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
-            
-            
-
-
-
+            <p class="left-align fontsize1_25em">Izabrali ste <i>{{korpa.restoran.naziv}}</i></p>
           </div>
 
           <div class="col s4">
             <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal bottom-sheet">
+                  <div class="modal-content">
+                    <h4>Korpa</h4>
+                    <table class="centered">
+                      <thead>
+                        <tr >
+                          <th>Naziv</th>
+                          <th>Cena</th>
+                          <th>Količina</th>
+                          <th>Poručena količina</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr v-for="artikal in korpa.pregledArtikala" :key="artikal.id">
+                          <td>{{artikal.nazivArtikla}}</td>
+                          <td>{{artikal.cenaArtikla}}</td>
+                          <td>
+                            {{artikal.kolicinaArtikla}}
+                            <span v-if="artikal.tip === 'JELO' ">g</span>
+                            <span v-else>ml</span>
+                          </td>
+                          <td>{{artikal.porucenaKolicina}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="modal-footer">
+                    <a  class="modal-close waves-effect waves-green btn-flat">Zatvori</a>
+                  </div>
+                </div>
+            <table>
+              <thead>
+                <tr >
+                  <th>Naziv</th>
+                  <th>Cena</th>
+                  <th>Količina</th>
+                  <th>Opis</th>
+                  <th><!-- Modal Trigger -->
+                <a v-on:click="korpaReload()" id = "modal_triger" class="waves-effect waves-light btn modal-trigger indigo lighten-1" href="#modal1">Korpa</a></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr v-for="artikal in korpa.restoran.artikli" :key="artikal.id">
+                  <td>{{artikal.naziv}}</td>
+                  <td>{{artikal.cena}}</td>
+                  <td>
+                    {{artikal.kolicina}}
+                    <span v-if="artikal.tip === 'JELO' ">g</span>
+                    <span v-else>ml</span>
+                  </td>
+                  <td>{{artikal.opis}}</td>
+                  <td><button v-on:click="dodajStavku(artikal.id)" class="waves-effect waves-light btn">Dodaj artikal</button></td>
+                  <!-- <td><button   class="waves-effect waves-light btn  red accent-2">Ukloni artikal</button></td> -->
+                  <!-- <i class="material-icons right">create</i> -->
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
     </div>
@@ -40,8 +104,16 @@ export default {
         ulogovaniKorisnik:{
             restoran:{},
         },
-        restorani: [],
-        korpa : {},
+
+        korpa : {
+          restoran:{
+            artikli:[],
+          },
+          pregledArtikala: [],
+          ukupnaCenaPorudzbine:{},
+        },
+        brNarucenihStavki: "",
+
       };
     },
 
@@ -58,39 +130,76 @@ export default {
           console.error("Error:", error);
         });
 
-        fetch('http://localhost:8081/api/svi-restorani', {
-        credentials: 'include'
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Success:", data); this.restorani = data
-        
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-
         fetch('http://localhost:8081/api/pregled-korpe', {
         credentials: 'include'
       })
         .then(response => response.json())
         .then(data => {
-          console.log("Success:", data); this.korpa = data
+          console.log("Korpa:", data); this.korpa = data
+          // console.log("BR REDOVA", this.korpa.pregledArtikala.length)
             // console.log("PODACI", this.korpa.restoran.id)
+            this.brNarucenihStavki = this.korpa.pregledArtikala.length
+            const myElement = document.getElementById("modal_triger");
+            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
         })
         .catch((error) => {
           console.error("Error:", error);
         });
-
         
 
   },
 
   methods: {
-      kreirajPorudzbinu : function(){
-        
+      dodajStavku : function(id_artikla){
+        fetch("http://localhost:8081/api/dodaj-stavku/" + id_artikla, {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            
+            })
+            .then((response) => response.json)
+            .then((data) => {
+              console.log("Stavka : " + data.toString());
+                // this.$router.push("/login");
+            })
+            .catch((err) => {
+              console.log("Error : " + err);
+              alert(err);
+            });
+
+            
+            const myElement = document.getElementById("modal_triger");
+            this.brNarucenihStavki++
+            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
       },
+
+      korpaReload : function(){
+        fetch('http://localhost:8081/api/pregled-korpe', {
+        credentials: 'include'
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Korpa:", data); this.korpa = data
+          // console.log("BR REDOVA", this.korpa.pregledArtikala.length)
+            // console.log("PODACI", this.korpa.restoran.id)
+            this.brNarucenihStavki = this.korpa.pregledArtikala.length
+            const myElement = document.getElementById("modal_triger");
+            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      },
+
+
+
+
   },
+
+
 
 }
 </script>
@@ -98,5 +207,9 @@ export default {
 <style scoped>
   button{
     max-width: 100%;
+  }
+
+  input{
+    width: 15% !important;
   }
 </style>

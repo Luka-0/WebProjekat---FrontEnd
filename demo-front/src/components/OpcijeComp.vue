@@ -30,6 +30,9 @@
                 <tr>
                     <td v-on:click="zapocniNarucivanje()" v-if = "uloga === 'KUPAC' ">Naručivanje</td>
                 </tr>
+                <tr>
+                    <td v-on:click="pregledKupovine()" v-if = "uloga === 'KUPAC' ">Pregled kupovine</td>
+                </tr>
             </tbody>
         </table>
 </template>
@@ -79,6 +82,10 @@ export default {
 
     zapocniNarucivanje: function () {
       this.$router.push("/zapocni-narucivanje");
+    },
+
+    pregledKupovine: function () {
+      this.$router.push("/kupovina");
     },
 
     

@@ -2,7 +2,7 @@
   <header-comp :enableLogin="false"></header-comp>  
     <div class="container">
         <div class="row">
-          <div class="col s8">
+          <div class="col s12 m8">
             <h1 class="left-align">Pregled porudžbina kupca</h1>
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
@@ -19,7 +19,7 @@
             </porudzbina-comp>
           </div>
 
-          <div class="col s4">
+          <div class="col s12 m4">
             <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
           </div>
         </div>
