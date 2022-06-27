@@ -21,6 +21,10 @@
                 <tr>
                     <td v-on:click="dodavanjeNovogMenadzera()" v-if = "uloga === 'ADMIN' ">Dodaj novog menadžera</td>
                 </tr>
+                <tr>
+                    <td v-on:click="dodavanjeNovogDostavljaca()" v-if = "uloga === 'ADMIN' ">Dodaj novog dostavljača</td>
+                </tr>
+
             </tbody>
         </table>
 </template>
@@ -60,7 +64,9 @@ export default {
       this.$router.push("/novi-menadzer");
     },
 
-    
+     dodavanjeNovogDostavljaca: function () {
+      this.$router.push("/novi-dostavljac");
+    },
     
   },
 }
