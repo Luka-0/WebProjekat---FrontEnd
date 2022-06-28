@@ -15,6 +15,7 @@
             
             <a class="waves-effect waves-light btn" v-on:click="pretraga()">Pretrazi</a>
             
+            <!--Za rezultat pretrage-->
             <ul class="collapsible">
                 <li v-for="restoran in restorani" :key="restoran.id">
                     <div class="collapsible-header"><i class="material-icons">restaurant</i>{{restoran.naziv}}</div>
@@ -24,7 +25,7 @@
                     </div>
                 </li>
             </ul>
-
+           
           </div>
 
           <div class="col s4">
@@ -34,7 +35,6 @@
     </div>
   <footer-comp></footer-comp>
 </template>
-
 <script>
 import FooterComp from '../components/FooterComp.vue';
 import HeaderComp from '../components/HeaderComp.vue';
@@ -51,13 +51,11 @@ export default {
         ulogovaniKorisnik:{
             restoran:{},
         },
-
         searchObj:{
             naziv:"",
             tipRestorana:"",
             adresaLokacije:"", 
         },
-
         restorani: [],
         
       };
@@ -81,7 +79,7 @@ export default {
     pretraga: function () {
       
        fetch("http://localhost:8081/api/pretraga", {
-        method: "GET",
+        method: "POST",
         credentials: 'include',
         headers: {
           Accept: "application/json",

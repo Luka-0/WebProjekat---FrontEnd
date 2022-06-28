@@ -25,14 +25,15 @@
                     <td v-on:click="dodavanjeNovogDostavljaca()" v-if = "uloga === 'ADMIN' ">Dodaj novog dostavljača</td>
                 </tr>
                  <tr>
+                   <td v-on:click="kreiranjeRestorana()" v-if = "uloga === 'ADMIN' ">Kreiraj restoran</td>
+                </tr>
+                 <tr>
                    <td v-on:click="pregledSvihRestorana()">Restorani</td>
                 </tr>
                 <tr>
                    <td v-on:click="pretragaRestorana()">Pronađi restoran</td>
                 </tr>
-                <tr>
-                   <td v-on:click="kreiranjeRestorana()" v-if = "uloga === 'ADMIN' ">Kreiraj restoran</td>
-                </tr>
+               
             </tbody>
         </table>
 </template>

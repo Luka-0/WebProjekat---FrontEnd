@@ -29,8 +29,7 @@
 
 
         <a class="waves-effect waves-light btn" v-on:click="dodajMenadzera()"
-          >Kreiraj</a
-        >
+          >Kreiraj</a>
       </div>
       <div class="col s4">
         <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
