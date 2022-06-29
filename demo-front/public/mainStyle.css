@@ -49,6 +49,6 @@
 
   }
 
-  .display_none{
-    display: none;
+  .visibility_hidden{
+    visibility: hidden;
   }

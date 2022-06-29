@@ -1,5 +1,5 @@
 <template>
-  <header-comp></header-comp>  
+  <header-comp :enableLogin="false"></header-comp>  
     <div class="container">
         <div class="row">
           <div class="col s8">
@@ -28,24 +28,24 @@
             </ul>
 
              <!-- <table>
-        <thead>
-          <tr>
-              <th>Naziv</th>
-              <th>Tip</th>
-              <th>Adresa</th>
-              <th>Status</th>
-          </tr>
-        </thead>
+                <thead>
+                  <tr>
+                      <th>Naziv</th>
+                      <th>Tip</th>
+                      <th>Adresa</th>
+                      <th>Status</th>
+                  </tr>
+                </thead>
 
-        <tbody>
-          <tr v-for="r in restorani" :key="r.naziv">
-            <td>{{r.naziv}}</td>
-            <td>{{r.tipRestorana}}</td>
-            <td>{{r.adresaLokacije}}</td>
-            <td>{{r.statusRestorana}}</td>
-          </tr>
-        </tbody>
-      </table> -->
+                <tbody>
+                  <tr v-for="r in restorani" :key="r.naziv">
+                    <td>{{r.naziv}}</td>
+                    <td>{{r.tipRestorana}}</td>
+                    <td>{{r.adresaLokacije}}</td>
+                    <td>{{r.statusRestorana}}</td>
+                  </tr>
+                </tbody>
+              </table> -->
            
           </div>
 
@@ -54,7 +54,7 @@
           </div>
         </div>
     </div>
-  <footer-comp></footer-comp>
+  <footer-comp :enableLogin="false"></footer-comp>
 </template>
 <script>
 import FooterComp from '../components/FooterComp.vue';
@@ -114,15 +114,16 @@ export default {
               console.log("Success : " + data);
               this.restorani = data
 
-                  var x = document.getElementById("restoran_kolapsibl");
-                  if (x.style.visibility === "hidden") {
-                    x.style.visibility = "visible";
-                  } 
+                  var x = document.getElementById("restoran_kolapsibl"); 
+                  x.style.visibility = "visible";
+
             })
             .catch((err) => {
               // console.log("Error : " + err);
               // alert(err);
               alert("Restoran nije pronađen. Proverite da li ste uneli odgovarajuće parametre pretrage")
+              var x = document.getElementById("restoran_kolapsibl"); 
+                  x.style.visibility = "hidden";
             });
     },
 
