@@ -34,7 +34,7 @@
                       </thead>
 
                       <tbody>
-                        <tr v-for="artikal in korpa.pregledArtikala" :key="artikal.id">
+                        <tr v-for="artikal in korpa.pregledArtikala" :key="artikal.id" id="tr_id">
                           <td>{{artikal.nazivArtikla}}</td>
                           <td>{{artikal.cenaArtikla}}</td>
                           <td>
@@ -43,6 +43,11 @@
                             <span v-else>ml</span>
                           </td>
                           <td>{{artikal.porucenaKolicina}}</td>
+                          <td>
+                            <button  class="waves-effect waves-light btn blue lighten-1 margin_right_2"><i class="material-icons">add</i></button>
+                            <button  class="waves-effect waves-light btn red lighten-1 margin_right_6"><i class="material-icons">remove</i></button>
+                            <button v-on:click="izbaciStavku(artikal.idStavke)"  class="waves-effect waves-light btn red darken-3">Izbaci artikal</button>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -60,8 +65,8 @@
                   <th>Količina</th>
                   <th>Opis</th>
                   <th><!-- Modal Trigger -->
-                <a v-on:click="korpaReload()" id = "modal_triger" class="waves-effect waves-light btn modal-trigger indigo lighten-1" href="#modal1">Korpa</a></th>
-                </tr>
+                    <a v-on:click="korpaReload()" id = "modal_triger" class="waves-effect waves-light btn modal-trigger indigo lighten-1" href="#modal1">Korpa</a></th>
+                  </tr>
               </thead>
 
               <tbody>
@@ -193,6 +198,22 @@ export default {
           console.error("Error:", error);
         });
       },
+
+      izbaciStavku: function (stavka_id) {
+        
+
+      fetch("http://localhost:8081/api/izbrisi-stavku/" + stavka_id, {
+        method: "DELETE",
+        credentials: 'include',
+      }).then((res) => {
+        if (res.ok) {
+          this.korpaReload()
+        }
+      });
+    },
+
+    
+
 
 
 
