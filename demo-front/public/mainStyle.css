@@ -48,3 +48,7 @@
     color:  #48a960 !important;
 
   }
+
+  .display_none{
+    display: none;
+  }

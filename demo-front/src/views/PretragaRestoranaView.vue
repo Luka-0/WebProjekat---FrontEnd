@@ -16,15 +16,36 @@
             <a class="waves-effect waves-light btn" v-on:click="pretraga()">Pretrazi</a>
             
             <!--Za rezultat pretrage-->
-            <ul class="collapsible">
-                <li v-for="restoran in restorani" :key="restoran.id">
-                    <div class="collapsible-header"><i class="material-icons">restaurant</i>{{restoran.naziv}}</div>
+            <ul class="collapsible visibility_hidden" id="restoran_kolapsibl">
+                <li v-for="r in restorani" :key="r.naziv">
+                    <div class="collapsible-header"><i class="material-icons">restaurant</i>{{r.naziv}}</div>
                     <div class="collapsible-body">
-                        <span><i class="material-icons">location_on</i>{{restoran.adresaLokacije}}</span><br>
-                        <span><i class="material-icons">restaurant</i>{{restoran.tipRestorana}}</span><br>
+                        <span><i class="material-icons">location_on</i>{{r.adresaLokacije}}</span><br>
+                        <span><i class="material-icons">restaurant</i>{{r.tipRestorana}}</span><br>
+                        <span><i class="material-icons">restaurant</i>{{r.statusRestorana}}</span><br>
                     </div>
                 </li>
             </ul>
+
+             <!-- <table>
+        <thead>
+          <tr>
+              <th>Naziv</th>
+              <th>Tip</th>
+              <th>Adresa</th>
+              <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="r in restorani" :key="r.naziv">
+            <td>{{r.naziv}}</td>
+            <td>{{r.tipRestorana}}</td>
+            <td>{{r.adresaLokacije}}</td>
+            <td>{{r.statusRestorana}}</td>
+          </tr>
+        </tbody>
+      </table> -->
            
           </div>
 
@@ -79,24 +100,33 @@ export default {
     pretraga: function () {
       
        fetch("http://localhost:8081/api/pretraga", {
-        method: "POST",
-        credentials: 'include',
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(this.searchObj),
-      })
-        .then((response) => response.json)
-        .then((data) => {
-           console.log("Success:", data); this.restorani = data
-          //this.$router.push("/restorani-pretraga");
-        })
-        .catch((err) => {
-          console.log("Error : " + err);
-          alert(err);
-        });
+            method: "POST",
+            credentials: 'include',
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            
+            body: JSON.stringify(this.searchObj),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success : " + data);
+              this.restorani = data
+
+                  var x = document.getElementById("restoran_kolapsibl");
+                  if (x.style.visibility === "hidden") {
+                    x.style.visibility = "visible";
+                  } 
+            })
+            .catch((err) => {
+              // console.log("Error : " + err);
+              // alert(err);
+              alert("Restoran nije pronađen. Proverite da li ste uneli odgovarajuće parametre pretrage")
+            });
     },
+
+
   },
 }
 </script>
