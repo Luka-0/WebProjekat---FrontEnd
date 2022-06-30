@@ -13,39 +13,27 @@
             <input type="text" placeholder="Tip restorana..." v-model="searchObj.tipRestorana">
             <input type="text" placeholder="Adersa..." v-model="searchObj.adresaLokacije">
             
-            <a class="waves-effect waves-light btn" v-on:click="pretraga()">Pretrazi</a>
+            <a class="waves-effect waves-light btn" v-on:click="pretraga()">Pretraži</a>
             
             <!--Za rezultat pretrage-->
             <ul class="collapsible visibility_hidden" id="restoran_kolapsibl">
                 <li v-for="r in restorani" :key="r.naziv">
-                    <div class="collapsible-header"><i class="material-icons">restaurant</i>{{r.naziv}}</div>
+                    <div class="collapsible-header"><i class="material-icons">restaurant</i>{{r.naziv}}
+                    
+                     <button class="btnSeeMore"  v-on:click="seeMore(r)" >
+                      Više o restoranu
+                      </button>
+                    
+                    </div>
+                    
+                     
                     <div class="collapsible-body">
-                        <span><i class="material-icons">location_on</i>{{r.adresaLokacije}}</span><br>
+                        <span><i class="material-icons">location_on</i>{{r.lokacija.adresa}}</span><br>
                         <span><i class="material-icons">restaurant</i>{{r.tipRestorana}}</span><br>
-                        <span><i class="material-icons">restaurant</i>{{r.statusRestorana}}</span><br>
+                        <span><i class="material-icons">restaurant</i>{{r.status}}</span><br>
                     </div>
                 </li>
             </ul>
-
-             <!-- <table>
-                <thead>
-                  <tr>
-                      <th>Naziv</th>
-                      <th>Tip</th>
-                      <th>Adresa</th>
-                      <th>Status</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr v-for="r in restorani" :key="r.naziv">
-                    <td>{{r.naziv}}</td>
-                    <td>{{r.tipRestorana}}</td>
-                    <td>{{r.adresaLokacije}}</td>
-                    <td>{{r.statusRestorana}}</td>
-                  </tr>
-                </tbody>
-              </table> -->
            
           </div>
 
@@ -76,6 +64,7 @@ export default {
             naziv:"",
             tipRestorana:"",
             adresaLokacije:"", 
+            statusRestorana: null,  //nema pretrage po statusu ali je prosiren dto
         },
         restorani: [],
         
@@ -96,6 +85,10 @@ export default {
       
   },
    methods: {
+
+     seeMore: function (restoran) {
+      this.$router.push("/restoran?id=" + restoran.id);
+    },
     
     pretraga: function () {
       

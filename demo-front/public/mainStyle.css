@@ -52,3 +52,10 @@
   .visibility_hidden{
     visibility: hidden;
   }
+  
+  .btnSeeMore{
+    color:  #6a8070 !important;
+    margin-left: 364px;
+    border-style: solid;
+
+  }
