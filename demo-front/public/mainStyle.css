@@ -55,7 +55,27 @@
   
   .btnSeeMore{
     color:  #6a8070 !important;
-    margin-left: 364px;
+    margin-left: 330px;
     border-style: solid;
 
+  }
+
+  .table{
+    background-color: #c4dba6 !important;
+    border-style:groove;
+  }
+
+  h5{
+    font-weight: bold !important;
+  }
+
+  .comments{
+
+    background-color: #6a8070;
+    color: white;
+    padding: 1%;
+    text-align: left;
+    font-size: medium;
+    width: 440;
+    height: 40px;
   }
