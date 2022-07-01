@@ -18,6 +18,24 @@
                 <tr>
                     <td v-on:click="pregledRestoranaMenadzera()" v-if = "uloga === 'MENADZER' ">Pregled svog restorana</td>
                 </tr>
+                <tr>
+                    <td v-on:click="pregledPorudzbinaKupca()" v-if = "uloga === 'KUPAC' ">Pregled porudzbina kupca</td>
+                </tr>
+                <tr>
+                    <td v-on:click="pregledPorudzbinaDostavljac()" v-if = "uloga === 'DOSTAVLJAC' ">Pregled porudzbina - dostavljac</td>
+                </tr>
+                <tr>
+                    <td v-on:click="pregledPorudzbinaMenadzer()" v-if = "uloga === 'MENADZER' ">Pregled porudzbina - menadzer</td>
+                </tr>
+                <tr>
+                    <td v-on:click="zapocniNarucivanje()" v-if = "uloga === 'KUPAC' ">Naručivanje</td>
+                </tr>
+                <tr>
+                    <td v-on:click="pregledKupovine()" v-if = "uloga === 'KUPAC' ">Pregled kupovine</td>
+                </tr>
+                <tr>
+                    <td v-on:click="pregledKorpe()" v-if = "uloga === 'KUPAC' ">Pregled korpe</td>
+                </tr>
             </tbody>
         </table>
 </template>
@@ -51,6 +69,30 @@ export default {
 
     pregledRestoranaMenadzera: function () {
       this.$router.push("/pregled-restorana-menadzera");
+    },
+
+    pregledPorudzbinaKupca: function () {
+      this.$router.push("/pregled-porudzbina-kupca");
+    },
+
+    pregledPorudzbinaDostavljac: function () {
+      this.$router.push("/pregled-porudzbina-dostavljac");
+    },
+
+    pregledPorudzbinaMenadzer: function () {
+      this.$router.push("/pregled-porudzbina-menadzer");
+    },
+
+    zapocniNarucivanje: function () {
+      this.$router.push("/zapocni-narucivanje");
+    },
+
+    pregledKupovine: function () {
+      this.$router.push("/kupovina");
+    },
+
+    pregledKorpe: function () {
+      this.$router.push("/pregled-korpe");
     },
 
     

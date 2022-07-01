@@ -12,6 +12,11 @@ import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.
 import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
 import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraView.vue'
 import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
+import PregledPorudzbinaDostavljacView from '../views/PregledPorudzbinaDostavljacView.vue'
+import PregledPorudzbinaMenadzerView from '../views/PregledPorudzbinaMenadzerView.vue'
+import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
+import KupovinaView from '../views/KupovinaView.vue'
+import PregledKorpeView from '../views/PregledKorpeView.vue'
 const routes = [
   {
     path: '/',
@@ -85,6 +90,36 @@ const routes = [
     path: '/pregled-porudzbina-kupca',
     name: 'pregled-porudzbina-kupca',
     component: PregledPorudzbinaKupcaView
+  },
+
+  {
+    path: '/pregled-porudzbina-dostavljac',
+    name: 'pregled-porudzbina-dostavljac',
+    component: PregledPorudzbinaDostavljacView
+  },
+
+  {
+    path: '/pregled-porudzbina-menadzer',
+    name: 'pregled-porudzbina-menadzer',
+    component: PregledPorudzbinaMenadzerView
+  },
+
+  {
+    path: '/zapocni-narucivanje',
+    name: 'zapocni-narucivanje',
+    component: ZapocniNarucivanjeView
+  },
+
+  {
+    path: '/kupovina',
+    name: 'kupovina',
+    component: KupovinaView
+  },
+
+  {
+    path: '/pregled-korpe',
+    name: 'pregled-korpe',
+    component: PregledKorpeView
   },
 
 
