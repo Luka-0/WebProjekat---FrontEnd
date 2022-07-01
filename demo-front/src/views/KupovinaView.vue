@@ -30,6 +30,7 @@
                           <th>Cena</th>
                           <th>Količina</th>
                           <th>Poručena količina</th>
+                          <th> Cena porudžbine : <i>{{korpa.ukupnaCenaPorudzbine}}</i></th>
                         </tr>
                       </thead>
 

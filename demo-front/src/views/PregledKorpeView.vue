@@ -24,6 +24,7 @@
                           <th>Cena</th>
                           <th>Količina</th>
                           <th>Poručena količina</th>
+                          <th> Cena porudžbine : <i>{{korpa.ukupnaCenaPorudzbine}}</i></th>
                         </tr>
                       </thead>
 
@@ -53,7 +54,7 @@
 
         <div class="row">
             <div class="col s12">
-                <button v-on:click="poruci()"  class="waves-effect waves-light btn green darken-1">Poruči</button>
+                <button v-on:click="poruci()"  class="waves-effect waves-light btn green darken-1 pading_0_5">Poruči</button>
             </div>
         </div>
     </div>
@@ -234,7 +235,11 @@ export default {
             });
     },
     
+    izracunajCenu : function(){
+      // for(const stavka in korpa){
 
+      // }
+    },
 
 
 
