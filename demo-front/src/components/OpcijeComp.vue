@@ -33,6 +33,9 @@
                 <tr>
                     <td v-on:click="pregledKupovine()" v-if = "uloga === 'KUPAC' ">Pregled kupovine</td>
                 </tr>
+                <tr>
+                    <td v-on:click="pregledKorpe()" v-if = "uloga === 'KUPAC' ">Pregled korpe</td>
+                </tr>
             </tbody>
         </table>
 </template>
@@ -86,6 +89,10 @@ export default {
 
     pregledKupovine: function () {
       this.$router.push("/kupovina");
+    },
+
+    pregledKorpe: function () {
+      this.$router.push("/pregled-korpe");
     },
 
     

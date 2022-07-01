@@ -17,13 +17,7 @@
 
         <div class="row">
           <div class="col s12">
-            
-
-                <!-- Modal Structure -->
-                <div id="modal1" class="modal bottom-sheet">
-                  <div class="modal-content">
-                    <h4>Korpa</h4>
-                    <table class="centered">
+             <table class="centered">
                       <thead>
                         <tr >
                           <th>Naziv</th>
@@ -43,6 +37,7 @@
                             <span v-else>ml</span>
                           </td>
                           <td>{{artikal.porucenaKolicina}}</td>
+                          
                           <td>
                             <button v-on:click="izmeniKolicinu(artikal.idStavke, artikal.porucenaKolicina + 1)" class="waves-effect waves-light btn blue lighten-1 margin_right_2"><i class="material-icons">add</i></button>
                             <button v-on:click="izmeniKolicinu(artikal.idStavke, artikal.porucenaKolicina - 1)" class="waves-effect waves-light btn red lighten-1 margin_right_6"><i class="material-icons">remove</i></button>
@@ -51,42 +46,15 @@
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-
-                  <div class="modal-footer">
-                    <a  class="modal-close waves-effect waves-green btn-flat">Zatvori</a>
-                    <a v-on:click="pregledKorpe()" class="waves-effect waves-green btn-flat">Pregled korpe</a>
-                  </div>
-                </div>
-            <table>
-              <thead>
-                <tr >
-                  <th>Naziv</th>
-                  <th>Cena</th>
-                  <th>Količina</th>
-                  <th>Opis</th>
-                  <th><!-- Modal Trigger -->
-                    <a v-on:click="korpaReload()" id = "modal_triger" class="waves-effect waves-light btn modal-trigger indigo lighten-1" href="#modal1">Korpa</a></th>
-                  </tr>
-              </thead>
-
-              <tbody>
-                <tr v-for="artikal in sortiranaKorpa" :key="artikal.id">
-                  <td>{{artikal.naziv}}</td>
-                  <td>{{artikal.cena}}</td>
-                  <td>
-                    {{artikal.kolicina}}
-                    <span v-if="artikal.tip === 'JELO' ">g</span>
-                    <span v-else>ml</span>
-                  </td>
-                  <td>{{artikal.opis}}</td>
-                  <td><button v-on:click="dodajStavku(artikal.id)" class="waves-effect waves-light btn">Dodaj artikal</button></td>
-                  <!-- <td><button   class="waves-effect waves-light btn  red accent-2">Ukloni artikal</button></td> -->
-                  <!-- <i class="material-icons right">create</i> -->
-                </tr>
-              </tbody>
-            </table>
           </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <button v-on:click="poruci()"  class="waves-effect waves-light btn green darken-1">Poruči</button>
+            </div>
         </div>
     </div>
   <footer-comp :enableLogin="false"></footer-comp>
@@ -146,11 +114,6 @@ export default {
         .then(response => response.json())
         .then(data => {
           console.log("Korpa:", data); this.korpa = data
-          // console.log("BR REDOVA", this.korpa.pregledArtikala.length)
-            // console.log("PODACI", this.korpa.restoran.id)
-            this.brNarucenihStavki = this.korpa.pregledArtikala.length
-            const myElement = document.getElementById("modal_triger");
-            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -189,11 +152,6 @@ export default {
               console.log("Error : " + err);
               alert(err);
             });
-
-            
-            const myElement = document.getElementById("modal_triger");
-            this.brNarucenihStavki++
-            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
       },
 
       korpaReload : function(){
@@ -203,11 +161,6 @@ export default {
         .then(response => response.json())
         .then(data => {
           console.log("Korpa:", data); this.korpa = data
-          // console.log("BR REDOVA", this.korpa.pregledArtikala.length)
-            // console.log("PODACI", this.korpa.restoran.id)
-            this.brNarucenihStavki = this.korpa.pregledArtikala.length
-            const myElement = document.getElementById("modal_triger");
-            myElement.textContent = 'KORPA' + ' [ ' + this.brNarucenihStavki + ' ] '
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -258,9 +211,29 @@ export default {
             });
     },
 
-    pregledKorpe: function () {
-      this.$router.push("/pregled-korpe");
+
+    poruci : function(){
+      fetch("http://localhost:8081/api/poruci", {
+            method: "PUT",
+            credentials: 'include',
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            
+            })
+            .then((response) => response.json)
+            .then((data) => {
+              console.log("Kraj porucivanja : " + data);
+              alert("Porčivanje je uspešno")
+              this.$router.push("/zapocni-narucivanje");
+            })
+            .catch((err) => {
+              console.log("Error : " + err);
+              // alert(err);
+            });
     },
+    
 
 
 

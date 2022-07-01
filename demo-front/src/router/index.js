@@ -16,6 +16,7 @@ import PregledPorudzbinaDostavljacView from '../views/PregledPorudzbinaDostavlja
 import PregledPorudzbinaMenadzerView from '../views/PregledPorudzbinaMenadzerView.vue'
 import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
 import KupovinaView from '../views/KupovinaView.vue'
+import PregledKorpeView from '../views/PregledKorpeView.vue'
 const routes = [
   {
     path: '/',
@@ -113,6 +114,12 @@ const routes = [
     path: '/kupovina',
     name: 'kupovina',
     component: KupovinaView
+  },
+
+  {
+    path: '/pregled-korpe',
+    name: 'pregled-korpe',
+    component: PregledKorpeView
   },
 
 
