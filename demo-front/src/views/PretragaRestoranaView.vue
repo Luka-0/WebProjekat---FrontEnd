@@ -46,7 +46,7 @@
            
           </div>
 
-          <div class="col s4">
+          <div class="col s4 margin_bottom_10">
             <opcije-comp :uloga="ulogovaniKorisnik.uloga"></opcije-comp>
           </div>
         </div>

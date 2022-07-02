@@ -17,6 +17,10 @@
   .margin_top{
     margin-top: 6%;
   }
+
+  .margin_bottom_10{
+    margin-bottom: 10% !important;
+  }
   
 .margin_right_2{
   margin-right: 2%;
