@@ -37,7 +37,7 @@
                 </ul>
             </div>
             
-            <div class="roEWw">
+            <div class="row">
                 <div class="col s12">
                     <h2 class="left-align">Porudzbine</h2>     
                     <porudzbina-comp
