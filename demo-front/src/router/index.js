@@ -19,6 +19,7 @@ import NoviRestoranView from '../views/NoviRestoranView.vue'
 import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 import PregledRestoranaView from '../views/PregledRestoranaView.vue'
 import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
+import PretragaKorisnikaView from '../views/PretragaKorisnikaView.vue'
 
 const routes = [
   {
@@ -135,6 +136,12 @@ const routes = [
     path: '/ukloni',
     name: 'ukloni',
     component: PotvrdaBrisanjaArtiklaView
+  },
+
+  {
+    path: '/search',
+    name: 'search',
+    component: PretragaKorisnikaView
   },
 
 
