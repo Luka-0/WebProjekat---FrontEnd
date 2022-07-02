@@ -1,5 +1,5 @@
 <template>
-    <header-comp></header-comp>
+    <header-comp :enableLogin="false"></header-comp>
 
 
     <div class="row">
@@ -52,7 +52,7 @@
     <p>fksdjfsdfsd</p><br>
     <p>fksdjfsdfsd</p><br>
 
-  <footer-comp></footer-comp>
+  <footer-comp :enableLogin="false"></footer-comp>
 </template>
 
 <script>

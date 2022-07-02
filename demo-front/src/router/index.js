@@ -21,12 +21,17 @@ import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 import PregledRestoranaView from '../views/PregledRestoranaView.vue'
 import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
 
+import PretragaKorisnikaView from '../views/PretragaKorisnikaView.vue'
+import BrisanjeRestoranaView from   '../views/BrisanjeRestoranaView.vue'
+
+
 
 import PregledPorudzbinaDostavljacView from '../views/PregledPorudzbinaDostavljacView.vue'
 import PregledPorudzbinaMenadzerView from '../views/PregledPorudzbinaMenadzerView.vue'
 import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
 import KupovinaView from '../views/KupovinaView.vue'
 import PregledKorpeView from '../views/PregledKorpeView.vue'
+
 
 const routes = [
   {
@@ -175,6 +180,18 @@ const routes = [
     path: '/ukloni',
     name: 'ukloni',
     component: PotvrdaBrisanjaArtiklaView
+  },
+
+  {
+    path: '/search',
+    name: 'search',
+    component: PretragaKorisnikaView
+  },
+
+  {
+    path: '/deleteRestoran',
+    name: 'deleteRestoran',
+    component: BrisanjeRestoranaView
   },
 
 

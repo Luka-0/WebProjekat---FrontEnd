@@ -67,7 +67,7 @@
   
   .btnSeeMore{
     color:  #6a8070 !important;
-    margin-left: 330px;
+    margin-left: 125px;
     border-style: solid;
 
   }
@@ -102,6 +102,12 @@
     
   }
 
+  .delbtnRestoran{
+    color:  #6a8070 !important;
+    margin-left: 95px;
+    border-style: solid;
+  }
+
   .lean_right{
     position: absolute;
     right: 40%;
@@ -119,4 +125,5 @@
 .pading_0_5{
   padding: 0% 5% !important;
 }
+
 

@@ -34,6 +34,9 @@
                 <tr>
                    <td v-on:click="pretragaRestorana()">Pronađi restoran</td>
                 </tr>
+                 <tr>
+                   <td v-on:click="pretragaKorisnika()"  v-if = "uloga === 'ADMIN' ">Pretrazi korisnike</td>
+                </tr>
                
 
                     <td v-on:click="pregledPorudzbinaKupca()" v-if = "uloga === 'KUPAC' ">Pregled porudzbina kupca</td>
@@ -108,6 +111,11 @@ export default {
 
      pretragaRestorana: function(){
        this.$router.push("/restorani-pretraga");
+    },
+
+
+     pretragaKorisnika: function(){
+       this.$router.push("/search");
     },
 
     pregledPorudzbinaKupca: function () {
