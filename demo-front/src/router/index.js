@@ -18,6 +18,8 @@ import RestoraniView from '../views/RestoraniView.vue'
 import NoviRestoranView from '../views/NoviRestoranView.vue'
 import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 import PregledRestoranaView from '../views/PregledRestoranaView.vue'
+import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
+
 const routes = [
   {
     path: '/',
@@ -127,6 +129,12 @@ const routes = [
     path: '/restoran',
     name: 'restoran',
     component: PregledRestoranaView
+  },
+
+  {
+    path: '/ukloni',
+    name: 'ukloni',
+    component: PotvrdaBrisanjaArtiklaView
   },
 
 

@@ -79,3 +79,13 @@
     width: 440;
     height: 40px;
   }
+
+  .delBtn{
+
+    color:  #cbe0d1 !important;
+    background-color: #6a8070 !important;
+    border-style: solid !important;
+    width: 80px;
+    height: 30px;
+    
+  }

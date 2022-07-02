@@ -1,5 +1,5 @@
 <template>
-  <header-comp :enableLogin="false"></header-comp> 
+  <header-comp></header-comp>  
     <div class="container">
         <div class="row">
           <div class="col s8">
@@ -25,7 +25,7 @@
           </div>
         </div>
     </div>
-  <footer-comp :enableLogin="false"></footer-comp>
+  <footer-comp></footer-comp>
 </template>
 
 <script>
@@ -42,9 +42,10 @@ export default {
     data: function(){
       return{
         ulogovaniKorisnik:{
-            restoran:{},
+     
         },
-        restorani: [],
+        artikal:{},
+        artikli: [],
       };
     },
     mounted: function () {

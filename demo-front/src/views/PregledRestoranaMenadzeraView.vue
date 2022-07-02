@@ -33,7 +33,13 @@
 
             <div class="col s8">
                 <ul class = "list_style_type_none left-align margin_left_8_5">
-                    <li  v-for = "artikal in restoranIPorudzbine.menadzerovRestoran.artikli" :key ="artikal.naziv">{{artikal.naziv}}</li>
+                    <li  v-for = "artikal in restoranIPorudzbine.menadzerovRestoran.artikli" :key ="artikal.naziv">
+                   <p text-align="center"> {{artikal.naziv}}</p>
+                    <button  class = "delBtn" v-on:click="ukloniArtikal(artikal)" >
+                      Ukloni
+                      </button>
+                      <hr class="solid">
+                    </li>
                 </ul>
             </div>
             
@@ -120,6 +126,12 @@ export default {
   },
 
   methods: {
+
+     ukloniArtikal: function (artikal) {
+      this.$router.push("/ukloni?id=" + artikal.id);
+    },
+
+    
 
   },
 
