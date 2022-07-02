@@ -55,7 +55,7 @@
   
   .btnSeeMore{
     color:  #6a8070 !important;
-    margin-left: 330px;
+    margin-left: 125px;
     border-style: solid;
 
   }
@@ -88,4 +88,10 @@
     width: 80px;
     height: 30px;
     
+  }
+
+  .delbtnRestoran{
+    color:  #6a8070 !important;
+    margin-left: 95px;
+    border-style: solid;
   }

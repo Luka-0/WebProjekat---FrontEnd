@@ -20,9 +20,18 @@
                 <li v-for="r in restorani" :key="r.naziv">
                     <div class="collapsible-header"><i class="material-icons">restaurant</i>{{r.naziv}}
                     
+                   
+
                      <button class="btnSeeMore"  v-on:click="seeMore(r)" >
                       Više o restoranu
                       </button>
+
+                      <button class="delbtnRestoran"  v-on:click="ukloniRestoran(r)" v-if = "ulogovaniKorisnik.uloga === 'ADMIN' " >
+                        Ukloni restoran
+                      </button>
+
+
+                    
                     
                     </div>
                     
@@ -88,6 +97,10 @@ export default {
 
      seeMore: function (restoran) {
       this.$router.push("/restoran?id=" + restoran.id);
+    },
+
+     ukloniRestoran: function (restoran) {
+      this.$router.push("/deleteRestoran?id=" + restoran.id);
     },
     
     pretraga: function () {

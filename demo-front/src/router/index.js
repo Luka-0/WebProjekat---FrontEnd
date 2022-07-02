@@ -20,7 +20,7 @@ import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 import PregledRestoranaView from '../views/PregledRestoranaView.vue'
 import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
 import PretragaKorisnikaView from '../views/PretragaKorisnikaView.vue'
-
+import BrisanjeRestoranaView from   '../views/BrisanjeRestoranaView.vue'
 const routes = [
   {
     path: '/',
@@ -142,6 +142,12 @@ const routes = [
     path: '/search',
     name: 'search',
     component: PretragaKorisnikaView
+  },
+
+  {
+    path: '/deleteRestoran',
+    name: 'deleteRestoran',
+    component: BrisanjeRestoranaView
   },
 
 
