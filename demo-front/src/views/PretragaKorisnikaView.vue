@@ -102,10 +102,8 @@ export default {
             .then((data) => {
               console.log("Success : " + data);
               this.korisnici = data
-
                   var x = document.getElementById("korisnikTbl"); 
                   x.style.visibility = "visible";
-
             })
             .catch((err) => {
               // console.log("Error : " + err);
@@ -115,8 +113,6 @@ export default {
                   x.style.visibility = "hidden";
             });
     },
-
-
   },
 }
 </script>
