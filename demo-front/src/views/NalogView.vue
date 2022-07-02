@@ -1,5 +1,5 @@
 <template>
-  <header-comp></header-comp>  
+  <header-comp :enableLogin="false"></header-comp>  
     <div class="container">
         <div class="row">
           <div class="col s8">
@@ -110,7 +110,7 @@
     <p>ddddddd</p><br>
     <p>ddddddd</p><br>
     <p>ddddddd</p><br>
-  <footer-comp></footer-comp>
+  <footer-comp :enableLogin="false"></footer-comp>
 </template>
 
 <script>
