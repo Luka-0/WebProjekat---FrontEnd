@@ -39,10 +39,18 @@
                   <td><b>Datum rođenja:</b></td>
                   <td>{{formatDate(ulogovaniKorisnik.datumRodjenja)}}</td>
                 </tr>
-                <!-- <tr v-if = "ulogovaniKorisnik.uloga === 'MENADZER'">
-                  <td><b>Datum rođenja:</b></td>
-                  <td>{{formatDate(data.restoran.naziv)}}</td>
-                </tr> -->
+                <tr v-if="ulogovaniKorisnik.uloga === 'KUPAC' ">
+                  <td><b>Tip:</b></td>
+                  <td>{{ulogovaniKorisnik.tk.ime}}</td>
+                </tr>
+                <tr v-if="ulogovaniKorisnik.uloga === 'KUPAC' ">
+                  <td><b>Bodovi:</b></td>
+                  <td>{{ulogovaniKorisnik.tk.trazeniBodovi}}</td>
+                </tr>
+                <tr v-if="ulogovaniKorisnik.uloga === 'MENADZER' ">
+                  <td><b>Restoran:</b></td>
+                  <td>{{ulogovaniKorisnik.restoran.naziv}}</td>
+                </tr>
               </tbody>
             </table>
 

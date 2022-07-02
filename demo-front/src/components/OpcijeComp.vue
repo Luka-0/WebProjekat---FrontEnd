@@ -38,7 +38,7 @@
                    <td v-on:click="pretragaKorisnika()"  v-if = "uloga === 'ADMIN' ">Pretrazi korisnike</td>
                 </tr>
                
-
+                <tr>
                     <td v-on:click="pregledPorudzbinaKupca()" v-if = "uloga === 'KUPAC' ">Pregled porudzbina kupca</td>
                 </tr>
                 <tr>
