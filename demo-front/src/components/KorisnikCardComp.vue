@@ -45,7 +45,9 @@
                   </tr>
                   <tr v-if = "korisnik.uloga === 'MENADZER'">
                     <td><b>Restoran:</b></td>
-                      <td v-if="korisnik.restoran !== null">{{korisnik.restoran.naziv}}</td>
+
+                    <td v-if="korisnik.restoran !== null">{{korisnik.restoran.naziv}}</td>
+
                   </tr>
                   <tr v-if = "korisnik.uloga === 'KUPAC'">
                     <td><b>Tip kupca:</b></td>
