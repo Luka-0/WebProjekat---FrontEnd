@@ -7,13 +7,14 @@
             <div class="divider"></div>
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
             <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
-            
+
             <ul class="collapsible">
                 <li v-for="restoran in restorani" :key="restoran.id">
                     <div class="collapsible-header"><i class="material-icons">restaurant</i>{{restoran.naziv}}</div>
                     <div class="collapsible-body">
                         <span><i class="material-icons">location_on</i>{{restoran.adresaLokacije}}</span><br>
                         <span><i class="material-icons">restaurant</i>{{restoran.tipRestorana}}</span><br>
+                        <span><i class="material-icons">restaurant</i>{{restoran.statusRestorana}}</span>
                     </div>
                 </li>
             </ul>
@@ -42,10 +43,10 @@ export default {
     data: function(){
       return{
         ulogovaniKorisnik:{
-     
+            restoran:{},
         },
-        artikal:{},
-        artikli: [],
+        restorani: [],
+        
       };
     },
     mounted: function () {
