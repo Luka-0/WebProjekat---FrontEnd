@@ -19,6 +19,23 @@
                     <td v-on:click="pregledRestoranaMenadzera()" v-if = "uloga === 'MENADZER' ">Pregled svog restorana</td>
                 </tr>
                 <tr>
+
+                    <td v-on:click="dodavanjeNovogMenadzera()" v-if = "uloga === 'ADMIN' ">Dodaj novog menadžera</td>
+                </tr>
+                <tr>
+                    <td v-on:click="dodavanjeNovogDostavljaca()" v-if = "uloga === 'ADMIN' ">Dodaj novog dostavljača</td>
+                </tr>
+                 <tr>
+                   <td v-on:click="kreiranjeRestorana()" v-if = "uloga === 'ADMIN' ">Kreiraj restoran</td>
+                </tr>
+                 <tr>
+                   <td v-on:click="pregledSvihRestorana()">Restorani</td>
+                </tr>
+                <tr>
+                   <td v-on:click="pretragaRestorana()">Pronađi restoran</td>
+                </tr>
+               
+
                     <td v-on:click="pregledPorudzbinaKupca()" v-if = "uloga === 'KUPAC' ">Pregled porudzbina kupca</td>
                 </tr>
                 <tr>
@@ -36,6 +53,7 @@
                 <tr>
                     <td v-on:click="pregledKorpe()" v-if = "uloga === 'KUPAC' ">Pregled korpe</td>
                 </tr>
+
             </tbody>
         </table>
 </template>
@@ -71,6 +89,27 @@ export default {
       this.$router.push("/pregled-restorana-menadzera");
     },
 
+
+    dodavanjeNovogMenadzera: function () {
+      this.$router.push("/novi-menadzer");
+    },
+
+     dodavanjeNovogDostavljaca: function () {
+      this.$router.push("/novi-dostavljac");
+    },
+
+     pregledSvihRestorana: function(){
+       this.$router.push("/restorani");
+    },
+
+     kreiranjeRestorana: function(){
+       this.$router.push("/novi-restoran");
+    },
+
+     pretragaRestorana: function(){
+       this.$router.push("/restorani-pretraga");
+    },
+
     pregledPorudzbinaKupca: function () {
       this.$router.push("/pregled-porudzbina-kupca");
     },
@@ -95,7 +134,7 @@ export default {
       this.$router.push("/pregled-korpe");
     },
 
-    
+
     
   },
 }

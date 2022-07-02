@@ -51,6 +51,57 @@
     list-style-type:none;
   }
 
+
+  h6{
+    font-weight: bold !important;
+  }
+
+  ::placeholder{
+    color:  #48a960 !important;
+
+  }
+
+  .visibility_hidden{
+    visibility: hidden;
+  }
+  
+  .btnSeeMore{
+    color:  #6a8070 !important;
+    margin-left: 330px;
+    border-style: solid;
+
+  }
+
+  .table{
+    background-color: #c4dba6 !important;
+    border-style:groove;
+  }
+
+  h5{
+    font-weight: bold !important;
+  }
+
+  .comments{
+
+    background-color: #6a8070;
+    color: white;
+    padding: 1%;
+    text-align: left;
+    font-size: medium;
+    width: 440;
+    height: 40px;
+  }
+
+  .delBtn{
+
+    color:  #cbe0d1 !important;
+    background-color: #6a8070 !important;
+    border-style: solid !important;
+    width: 80px;
+    height: 30px;
+    
+  }
+
   .lean_right{
     position: absolute;
     right: 40%;
@@ -68,3 +119,4 @@
 .pading_0_5{
   padding: 0% 5% !important;
 }
+

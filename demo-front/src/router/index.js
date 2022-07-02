@@ -12,11 +12,22 @@ import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.
 import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
 import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraView.vue'
 import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
+
+import NoviMenadzerView from '../views/NoviMenadzerView.vue'
+import NoviDostavljacView from '../views/NoviDostavljacView.vue'
+import RestoraniView from '../views/RestoraniView.vue'
+import NoviRestoranView from '../views/NoviRestoranView.vue'
+import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
+import PregledRestoranaView from '../views/PregledRestoranaView.vue'
+import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
+
+
 import PregledPorudzbinaDostavljacView from '../views/PregledPorudzbinaDostavljacView.vue'
 import PregledPorudzbinaMenadzerView from '../views/PregledPorudzbinaMenadzerView.vue'
 import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
 import KupovinaView from '../views/KupovinaView.vue'
 import PregledKorpeView from '../views/PregledKorpeView.vue'
+
 const routes = [
   {
     path: '/',
@@ -92,6 +103,13 @@ const routes = [
     component: PregledPorudzbinaKupcaView
   },
 
+
+   {
+    path: '/novi-menadzer',
+    name: 'novi-menadzer',
+    component: NoviMenadzerView
+  },
+
   {
     path: '/pregled-porudzbina-dostavljac',
     name: 'pregled-porudzbina-dostavljac',
@@ -123,12 +141,41 @@ const routes = [
   },
 
 
+  {
+    path: '/novi-dostavljac',
+    name: 'novi-dostavljac',
+    component: NoviDostavljacView
+  },
 
+  {
+    path: '/restorani',
+    name: 'restorani',
+    component: RestoraniView
+  },
 
+  {
+    path: '/novi-restoran',
+    name: 'novi-restoran',
+    component: NoviRestoranView
+  },
 
+  {
+    path: '/restorani-pretraga',
+    name: 'restorani-pretraga',
+    component: PretragaRestoranaView
+  },
 
+  {
+    path: '/restoran',
+    name: 'restoran',
+    component: PregledRestoranaView
+  },
 
-
+  {
+    path: '/ukloni',
+    name: 'ukloni',
+    component: PotvrdaBrisanjaArtiklaView
+  },
 
 
 ]
