@@ -27,7 +27,7 @@ import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
 import KupovinaView from '../views/KupovinaView.vue'
 import PregledKorpeView from '../views/PregledKorpeView.vue'
 import AzuriranjeArtiklaView from '../views/AzuriranjeArtiklaView.vue'
-
+import DodajArtikalView from '../views/DodajArtikalView.vue'
 
 const routes = [
   {
@@ -194,6 +194,12 @@ const routes = [
     path: '/azuriranje-artikla',
     name: 'azuriranje-artikla',
     component: AzuriranjeArtiklaView
+  },
+
+  {
+    path: '/dodavanje-artikla',
+    name: 'dodavanje-artikla',
+    component: DodajArtikalView
   },
 
 

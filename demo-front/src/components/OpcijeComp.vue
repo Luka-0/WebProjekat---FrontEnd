@@ -56,6 +56,9 @@
                 <tr>
                     <td v-on:click="pregledKorpe()" v-if = "uloga === 'KUPAC' ">Pregled korpe</td>
                 </tr>
+                <tr>
+                    <td v-on:click="dodavanjeArtikla()" v-if = "uloga === 'MENADZER' ">Dodavanje artikla</td>
+                </tr>
 
             </tbody>
         </table>
@@ -140,6 +143,10 @@ export default {
 
     pregledKorpe: function () {
       this.$router.push("/pregled-korpe");
+    },
+
+    dodavanjeArtikla: function () {
+      this.$router.push("/dodavanje-artikla");
     },
 
 

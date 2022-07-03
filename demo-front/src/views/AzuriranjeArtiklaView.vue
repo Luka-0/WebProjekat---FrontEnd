@@ -37,6 +37,7 @@
 import FooterComp from '../components/FooterComp.vue';
 import HeaderComp from '../components/HeaderComp.vue';
 import OpcijeComp from '../components/OpcijeComp.vue'
+
 export default {
     name: "azuriranjeLicnihPodataka",
     components:{
@@ -56,7 +57,7 @@ export default {
     mounted: function () {
         let x = document.cookie
         this.idArtikla = x.substring(11)
-        alert(this.idArtikla)
+        // alert(this.idArtikla)
         
       
     //   Dobavljanje korisnika zbog uloge
@@ -112,15 +113,24 @@ export default {
             });
         },
 
+
+
         azurirajArtikal : function(){
-            fetch("http://localhost:8081/api/artikal-update/" + this.idArtikla,{
+            fetch("http://localhost:8081/api/artikal-update/" + this.idArtikla + "?" + new URLSearchParams({
+              naziv : this.trazeniArtikal.naziv,
+              cena : this.trazeniArtikal.cena,
+              tip: this.trazeniArtikal.tip,
+              kolicina : this.trazeniArtikal.kolicina,
+              opis : this.trazeniArtikal.opis
+
+            }),{
             method: "PUT",
             credentials: 'include',
             headers: {
             Accept: "application/json",
             "Content-type": "application/json",
             },  
-            body: JSON.stringify(this.trazeniArtikal),
+            // body: JSON.stringify(this.trazeniArtikal),
              })
             .then((response) => response.json)
             .then((data) => {
@@ -131,6 +141,7 @@ export default {
             console.log("Error : " + err);
             alert(err);
             });
+      
         },
   },
 
