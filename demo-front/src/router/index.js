@@ -28,6 +28,7 @@ import KupovinaView from '../views/KupovinaView.vue'
 import PregledKorpeView from '../views/PregledKorpeView.vue'
 import AzuriranjeArtiklaView from '../views/AzuriranjeArtiklaView.vue'
 import DodajArtikalView from '../views/DodajArtikalView.vue'
+import PostavljanjeMenadzeraView from '../views/PostavljanjeMenadzeraView.vue'
 
 const routes = [
   {
@@ -200,6 +201,12 @@ const routes = [
     path: '/dodavanje-artikla',
     name: 'dodavanje-artikla',
     component: DodajArtikalView
+  },
+
+  {
+    path: '/postavi-menadzera',
+    name: 'postavi-menadzer',
+    component: PostavljanjeMenadzeraView
   },
 
 

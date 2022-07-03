@@ -73,6 +73,8 @@
     color:  #6a8070 !important;
     margin-left: 125px;
     border-style: solid;
+    width: 90px;
+    height: 50px;
 
   }
 
@@ -108,8 +110,10 @@
 
   .delbtnRestoran{
     color:  #6a8070 !important;
-    margin-left: 95px;
+    margin-left: 34px;
     border-style: solid;
+    width: 90px;
+    height: 50px;
   }
 
   .lean_right{
@@ -128,6 +132,14 @@
 
 .pading_0_5{
   padding: 0% 5% !important;
+}
+
+.setMenager{
+  color:  #6a8070 !important;
+  margin-left: 32px;
+  border-style: solid;
+  width: 90px;
+  height: 50px;
 }
 
 
