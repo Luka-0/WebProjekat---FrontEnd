@@ -8,7 +8,7 @@
             <p class="left-align fontsize1_25em">Ulogovani korisnik : <b>{{ulogovaniKorisnik.korisnickoIme}}</b></p>
             <p class="left-align fontsize1_25em">Uloga: <b>{{ulogovaniKorisnik.uloga}}</b></p>
             
-            <!-- Prikaz restorana -->
+            <!-- Prikaz restorana --> 
             <h2 class="left-align">Restoran</h2>
             <table>
               <tbody>
@@ -37,7 +37,11 @@
                    <p text-align="center"> {{artikal.naziv}}</p>
                     <button  class = "delBtn" v-on:click="ukloniArtikal(artikal)" >
                       Ukloni
-                      </button>
+                    </button>
+
+                    <button  class = "delBtn" v-on:click="azurirajArtikal(artikal.id)" >
+                      Azuriraj 
+                    </button>
                       <hr class="solid">
                     </li>
                 </ul>
@@ -131,7 +135,11 @@ export default {
       this.$router.push("/ukloni?id=" + artikal.id);
     },
 
-    
+    azurirajArtikal : function(id_artikla){
+      document.cookie = "artikal_id=" + id_artikla;
+      // console.log(id_artikla)
+      this.$router.push("/azuriranje-artikla");
+    }
 
   },
 

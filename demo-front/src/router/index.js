@@ -12,7 +12,6 @@ import AzuriranjeLicnihPodatakaView from '../views/AzuriranjeLicnihPodatakaView.
 import PregledSvihKorisnikaView from '../views/PregledSvihKorisnikaView.vue'
 import PregledRestoranaMenadzeraView from '../views/PregledRestoranaMenadzeraView.vue'
 import PregledPorudzbinaKupcaView from '../views/PregledPorudzbinaKupcaView.vue'
-
 import NoviMenadzerView from '../views/NoviMenadzerView.vue'
 import NoviDostavljacView from '../views/NoviDostavljacView.vue'
 import RestoraniView from '../views/RestoraniView.vue'
@@ -20,17 +19,14 @@ import NoviRestoranView from '../views/NoviRestoranView.vue'
 import PretragaRestoranaView from '../views/PretragaRestoranaView.vue'
 import PregledRestoranaView from '../views/PregledRestoranaView.vue'
 import PotvrdaBrisanjaArtiklaView from '../views/PotvrdaBrisanjaArtiklaView.vue'
-
 import PretragaKorisnikaView from '../views/PretragaKorisnikaView.vue'
 import BrisanjeRestoranaView from   '../views/BrisanjeRestoranaView.vue'
-
-
-
 import PregledPorudzbinaDostavljacView from '../views/PregledPorudzbinaDostavljacView.vue'
 import PregledPorudzbinaMenadzerView from '../views/PregledPorudzbinaMenadzerView.vue'
 import ZapocniNarucivanjeView from '../views/ZapocniNarucivanjeView.vue'
 import KupovinaView from '../views/KupovinaView.vue'
 import PregledKorpeView from '../views/PregledKorpeView.vue'
+import AzuriranjeArtiklaView from '../views/AzuriranjeArtiklaView.vue'
 
 
 const routes = [
@@ -192,6 +188,12 @@ const routes = [
     path: '/deleteRestoran',
     name: 'deleteRestoran',
     component: BrisanjeRestoranaView
+  },
+
+  {
+    path: '/azuriranje-artikla',
+    name: 'azuriranje-artikla',
+    component: AzuriranjeArtiklaView
   },
 
 
