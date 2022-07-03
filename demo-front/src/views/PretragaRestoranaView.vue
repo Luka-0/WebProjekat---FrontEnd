@@ -30,7 +30,9 @@
                         Ukloni restoran
                       </button>
 
-
+                       <button class="setMenager"  v-on:click="postaviMenadzera(r)" v-if = "ulogovaniKorisnik.uloga === 'ADMIN' " >
+                       Postavi <br>menadzera
+                      </button>
                     
                     
                     </div>
@@ -101,6 +103,10 @@ export default {
 
      ukloniRestoran: function (restoran) {
       this.$router.push("/deleteRestoran?id=" + restoran.id);
+    },
+
+      postaviMenadzera: function (restoran) {
+      this.$router.push("/postavi-menadzera?id=" + restoran.id);
     },
     
     pretraga: function () {
