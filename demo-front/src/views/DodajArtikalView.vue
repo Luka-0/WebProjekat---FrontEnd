@@ -26,11 +26,11 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>File</span>
-                    <input  type="file">
+                    <input  type="file"  @change="previewFiles">
                 </div>
 
                 <div class="file-path-wrapper">
-                    <input v-model="noviArtikal.url" class="file-path validate" type="text">
+                    <input class="file-path validate" type="text">
                 </div>
             </div>
 
@@ -82,40 +82,8 @@ export default {
   },
  
   methods: {
-        // dodajArtikal : function(){
-        //     fetch("http://localhost:8081/api/dodaj-novi-artikal" + "?" + new URLSearchParams({
-        //       naziv : this.noviArtikal.naziv,
-        //       cena : this.noviArtikal.cena,
-        //       tip: this.noviArtikal.tip,
-        //       kolicina : this.noviArtikal.kolicina,
-        //       opis : this.noviArtikal.opis,
-        //       image: this.noviArtikal.photo
-
-        //     }),{
-        //     method: "POST",
-        //     credentials: 'include',
-        //     headers: {
-        //     Accept: "application/json",
-        //     // "Content-type": "application/json",
-        //     },  
-
-        //      })
-        //     .then((response) => response.json)
-        //     .then((data) => {
-        //     console.log("Novi artikal : " + data);
-        //     this.$router.push("/pregled-restorana-menadzera");
-        //     })
-        //     .catch((err) => {
-        //     console.log("Error : " + err);
-        //     alert(err);
-        //     });
-      
-        // },
-
-
-
-
         dodajArtikal : function(){
+            alert(this.noviArtikal.url)
             fetch("http://localhost:8081/api/dodavanje-novoga-artikla",{
             method: "POST",
             credentials: 'include',
@@ -136,6 +104,12 @@ export default {
             });
       
         },
+        
+        previewFiles(event) {
+        this.noviArtikal.url = event.target.files[0].name
+        },
+
+
   },
 
 

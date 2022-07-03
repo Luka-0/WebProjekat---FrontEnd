@@ -21,6 +21,17 @@
 
             <label for="tip">Tip: (JELO / PICE) </label>
             <input class = "center-align" v-model="trazeniArtikal.tip" />
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input  type="file"  @change="previewFiles">
+                </div>
+
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
           
             <a class="waves-effect waves-light btn"  v-on:click="azurirajArtikal()">Ažuriraj podatke</a>
           </div>
@@ -121,7 +132,9 @@ export default {
               cena : this.trazeniArtikal.cena,
               tip: this.trazeniArtikal.tip,
               kolicina : this.trazeniArtikal.kolicina,
-              opis : this.trazeniArtikal.opis
+              opis : this.trazeniArtikal.opis,
+              image : this.trazeniArtikal.photo
+
 
             }),{
             method: "PUT",
@@ -143,6 +156,12 @@ export default {
             });
       
         },
+
+        previewFiles(event) {
+        this.trazeniArtikal.photo = event.target.files[0].name
+        },
+
+
   },
 
 
