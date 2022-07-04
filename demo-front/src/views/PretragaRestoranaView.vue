@@ -20,11 +20,6 @@
                 <li v-for="r in restorani" :key="r.naziv">
                     <div class="collapsible-header"><i class="material-icons">restaurant</i>{{r.naziv}}
                     
-                   
-
-                     <button class="btnSeeMore"  v-on:click="seeMore(r)" >
-                      Više o restoranu
-                      </button>
 
                       <button class="delbtnRestoran"  v-on:click="ukloniRestoran(r)" v-if = "ulogovaniKorisnik.uloga === 'ADMIN' " >
                         Ukloni restoran
@@ -33,7 +28,10 @@
                        <button class="setMenager"  v-on:click="postaviMenadzera(r)" v-if = "ulogovaniKorisnik.uloga === 'ADMIN' " >
                        Postavi <br>menadzera
                       </button>
-                    
+                     
+                       <button class="btnSeeMore"  v-on:click="seeMore(r)" >
+                      Više o restoranu
+                      </button>
                     
                     </div>
                     
