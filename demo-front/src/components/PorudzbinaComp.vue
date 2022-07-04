@@ -33,6 +33,12 @@
             <td><b>Status:</b></td>
             <td>{{porudzbina.status}}</td>
           </tr>
+          <tr v-if="kupac !== null ">
+            <td><b>Ostavi komentar:</b></td>
+            <td v-if="porudzbina.status === 'dostavljena' ">
+              <button id = "batn" class="waves-effect waves-light btn"  v-on:click="ostaviKomentar()">Komentariši</button>
+            </td>
+          </tr>
         </tbody>
       </table>
 </template>
@@ -42,7 +48,10 @@ export default {
   name: "PorudzbinaComp",
   props: ["porudzbina", "kupac", "restoran"],
   methods: {
-
+    ostaviKomentar: function () {
+      document.cookie = "uuidporudzbine=" + this.porudzbina.uuid;
+      this.$router.push("/ostavi-komentar");
+    },
   },
 };
 </script>
