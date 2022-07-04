@@ -2,6 +2,11 @@
     margin: 15% 10%;
   }
 
+
+  .margin12_0{
+    margin: 12% 0% !important;
+  }
+
   .margin2_5{
     margin: 2% 5%;
   }
@@ -40,6 +45,10 @@
 
   h2{
     font-size: 3vW !important;
+  }
+
+  h3{
+    font-size: 2.5vW !important;
   }
 
   .fontsize_3{
@@ -142,4 +151,35 @@
   height: 50px;
 }
 
+.pos_absolte{
+  position: absolute;
+}
 
+.pading5{
+  padding: 3%;
+}
+
+.header_natpis{
+  top:40%;
+  left: 1.5%;
+  color: white;
+  font-family: 'Cherry Swash', cursive;
+  border: 1px solid white;
+  border-radius: 5em;
+}
+
+.fontsize2rem{
+  font-size: 2rem;
+}
+
+.fontfamiliCherrySwash{
+  font-family: 'Cherry Swash', cursive;
+}
+
+.fontsize2vw{
+  font-size:2vw !important;
+}
+
+.blur{
+  backdrop-filter: blur(10px);
+}
