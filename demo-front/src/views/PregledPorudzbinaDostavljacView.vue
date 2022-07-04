@@ -16,14 +16,47 @@
 
         <div class="row">
           <div class="col s12">
-            <porudzbina-comp
+            <!-- <porudzbina-comp
             v-for="porudzbina in porudzbineDostavljaca"
             :key="porudzbina.uuid"
             :porudzbina="porudzbina"
             :kupac=null
             :restoran=null
             >
-            </porudzbina-comp>
+            </porudzbina-comp> -->
+
+            <table class="striped z-depth-1" v-for="porudzbina in porudzbineDostavljaca" :key="porudzbina.uuid">
+            <tbody>
+              <tr>
+                <td><b>UUID:</b></td>
+                <td>{{porudzbina.uuid}}</td>
+              </tr>
+              <tr>
+                <td><b>Stavke porudžbine:</b></td>
+                <td>
+                    <ul class = "list_style_type_none">
+                        <li  v-for = "stavka in porudzbina.stavkePorudzbine" :key ="stavka.artikal.naziv">{{stavka.porucenaKolicina}}x, {{stavka.artikal.naziv}}, <i>{{stavka.artikal.cena}}din.</i> </li>
+                    </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><b>Datum i vreme porudzbine:</b></td>
+                <td>{{porudzbina.datumIVreme}}</td>
+              </tr>
+              <tr>
+                <td><b>Cena:</b></td>
+                <td>{{porudzbina.cena}}</td>
+              </tr>
+              <tr>
+                <td><b>Status:</b></td>
+                <td>{{porudzbina.status}}</td>
+              </tr>
+              <tr>
+                <td><b>Promeni status:</b></td>
+                <td><button class="waves-effect waves-light btn" v-on:click="izmeniStatus(porudzbina.uuid)">Izmeni</button></td>
+              </tr>
+            </tbody>
+         </table>
           </div>
         </div>
     </div>
@@ -82,7 +115,26 @@ export default {
   },
 
   methods: {
+    izmeniStatus : function(uuid){
+            fetch("http://localhost:8081/api/dostavljac-pregled-porudzbina/" + uuid,{
+            method: "PUT",
+            credentials: 'include',
+            headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+            },  
 
+             })
+            .then((response) => response.json)
+            .then((data) => {
+            console.log("Success : " + data);
+            window.location.reload()
+            })
+            .catch((err) => {
+            console.log("Error : " + err);
+            alert(err);
+            });
+        },
   },
 
 }
